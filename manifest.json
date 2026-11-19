@@ -1,0 +1,7 @@
+{
+  "name": "UK 12-Hour Time",
+  "description": "Forces DD/MM/YYYY with 12-hour AM/PM time on en-GB",
+  "authors": [{ "name": "Custom", "id": "0" }],
+  "main": "index.js",
+  "vendetta": { "icon": "ic_clock_24px" }
+}
