@@ -1,29 +1,7 @@
-(() => {
-  const moment = bunny.metro.findByProps("updateLocale", "defineLocale");
-  return {
-    onLoad() {
-      moment?.updateLocale("en-gb", {
-        longDateFormat: {
-          LT: "h:mm A",
-          LTS: "h:mm:ss A",
-          L: "DD/MM/YYYY",
-          LL: "D MMMM YYYY",
-          LLL: "D MMMM YYYY h:mm A",
-          LLLL: "dddd, D MMMM YYYY h:mm A"
-        }
-      });
-    },
-    onUnload() {
-      moment?.updateLocale("en-gb", {
-        longDateFormat: {
-          LT: "HH:mm",
-          LTS: "HH:mm:ss",
-          L: "DD/MM/YYYY",
-          LL: "D MMMM YYYY",
-          LLL: "D MMMM YYYY HH:mm",
-          LLLL: "dddd, D MMMM YYYY HH:mm"
-        }
-      });
-    }
-  };
-})();
+{
+  "name": "UK 12-Hour Time",
+  "description": "Forces DD/MM/YYYY with 12-hour AM/PM time on en-GB",
+  "authors": [{ "name": "Custom", "id": "0" }],
+  "main": "index.js",
+  "vendetta": { "icon": "ic_clock_24px" }
+}
