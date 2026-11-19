@@ -3,6 +3,6 @@
   "description": "Forces DD/MM/YYYY with 12-hour AM/PM time on en-GB",
   "authors": [{ "name": "Custom", "id": "0" }],
   "main": "index.js",
-  "hash": "none",
+  "hash": "c693799291629f4ac35c22aa3614602adc6394f85523d614b30a9116e64117b4",
   "vendetta": { "icon": "ic_clock_24px" }
 }
