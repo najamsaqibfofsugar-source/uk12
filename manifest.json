@@ -1,14 +1,14 @@
 {
-  "name": "UK Date 12h Time",
-  "description": "Keeps DD/MM/YYYY dates while forcing 12-hour AM/PM timestamps.",
+  "name": "UK 12-Hour Format",
+  "description": "Forces DD/MM/YYYY date and 12-hour time format.",
   "authors": [
     {
-      "name": "Custom",
-      "id": "0"
+      "name": "najamsaqib"
     }
   ],
   "main": "index.js",
+  "hash": "5149c43670b995cc0a70d8f649850b272c512ea31433a92bf814d925877b8847",
   "vendetta": {
-    "icon": "ic_clock_24px"
+    "icon": "ic_clock"
   }
 }
