@@ -1,5 +1,6 @@
-(() => {
-  const moment = bunny.metro.findByProps("updateLocale", "defineLocale");
+return (() => {
+  const api = window.bunny || window.vendetta || window.kettu;
+  const moment = api?.metro?.findByProps("updateLocale", "defineLocale");
   const originalFormats = {};
 
   const customFormat = {
