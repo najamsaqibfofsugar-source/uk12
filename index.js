@@ -1,26 +1,41 @@
 (() => {
-  const run = () => {
-    const m = bunny?.metro?.findByProps("updateLocale", "defineLocale");
-    if (!m) return false;
-    m.updateLocale("en-gb", {
-      longDateFormat: {
-        LT: "h:mm A",
-        LTS: "h:mm:ss A",
-        L: "DD/MM/YYYY",
-        LL: "D MMMM YYYY",
-        LLL: "D MMMM YYYY h:mm A",
-        LLLL: "dddd, D MMMM YYYY h:mm A"
-      }
-    });
-    return true;
+  const moment = bunny.metro.findByProps("updateLocale", "defineLocale");
+  const originalFormats = {};
+
+  const customFormat = {
+    LT: "h:mm A",
+    LTS: "h:mm:ss A",
+    L: "DD/MM/YYYY",
+    LL: "D MMMM YYYY",
+    LLL: "D MMMM YYYY h:mm A",
+    LLLL: "dddd, D MMMM YYYY h:mm A"
   };
-  let t;
+
+  function getTargetLocales() {
+    return [...new Set([moment.locale(), "en-gb", "en"])];
+  }
+
   return {
     onLoad() {
-      if (!run()) t = setInterval(() => { if (run()) clearInterval(t); }, 500);
+      if (!moment) return;
+      getTargetLocales().forEach((loc) => {
+        const data = moment.localeData(loc);
+        if (data?._longDateFormat && !originalFormats[loc]) {
+          originalFormats[loc] = { ...data._longDateFormat };
+        }
+        moment.updateLocale(loc, { longDateFormat: customFormat });
+      });
+      moment.locale(moment.locale());
     },
+
     onUnload() {
-      if (t) clearInterval(t);
+      if (!moment) return;
+      getTargetLocales().forEach((loc) => {
+        if (originalFormats[loc]) {
+          moment.updateLocale(loc, { longDateFormat: originalFormats[loc] });
+        }
+      });
+      moment.locale(moment.locale());
     }
   };
 })();
